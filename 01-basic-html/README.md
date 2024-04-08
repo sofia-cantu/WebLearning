@@ -11,3 +11,25 @@ touch index.html profile.html README.md   # Creamos los archivos
 2. **Crear contenido de documentos de html**
 Escribí '!' y luego presione Tab para el template
 En los comentarios se explica el contenido adicional
+
+3. **commit with Github Desktop**
+Primero agregamos los cambios con el siguiente comando:
+```bash
+git add .
+```
+podemos cambiar el ´.´por el archivo qur qeramos agregar.
+
+Haz el commit con el mensaje que quieras
+```bash
+git commit -m "Messagje"
+```
+
+Haz el commit con el mensaje que quieras
+```bash
+git push origin nombre-del-branch
+```
+
+Hacer commit al main 
+```bash
+git pull origin nombre-del-branch
+```
