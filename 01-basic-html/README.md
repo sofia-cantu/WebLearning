@@ -21,10 +21,10 @@ podemos cambiar el ´.´por el archivo qur qeramos agregar.
 
 Haz el commit con el mensaje que quieras
 ```bash
-git commit -m "Messagje"
+git commit -m "Mjs"
 ```
 
-Haz el commit con el mensaje que quieras
+Enviar cambios al main
 ```bash
 git push origin nombre-del-branch
 ```
