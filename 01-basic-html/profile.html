@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCT - Contact form</title>
 
+    <link rel="stylesheet" href="style.css">
+
     <script>
         function submitForm(event) {
             event.preventDefault(); // Para no tener bancos de info vacios
@@ -14,7 +16,7 @@
             const email = document.getElementById('email').value;
 
             //mandar mjs como alerta
-            alert(`Gracias por sus comentarios ${name}, te contactaremos a ${email} en caso de ser necesario.`);
+            alert(`¡Gracias por tus comentarios ${name}! Te contactaremos por correo a ${email} en caso de ser necesario :)).`);
             
             document.getElementById('contact-form').reset(); //una recomendación de internet, aunque hice pruebas y es inutil en este caso
         }
