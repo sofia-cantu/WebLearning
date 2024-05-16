@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "prepare": "cd .. && husky 04-nestjs-rick-and-morty/.husky || true"
+    "prepare": "cd .. && husky 04-nestjs-rick-and-morty/.husky || true",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "next": "14.2.2",
