@@ -1,17 +1,18 @@
+// Home.tsx
 'use client'
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import CharacterCard from './components/CharacterCard'
 import {
-  CharacterResponse,
   getCharacterAtPage,
   getCharactersFirstPage,
 } from './services/characterService'
+import { Character, CharacterResponse } from './utils/schemas' // Import directly from schemas
 
 export default function Home() {
-  const [characters, setCharacters] = useState<CharacterResponse>()
+  const [characters, setCharacters] = useState<CharacterResponse | null>(null)
   const [favorites, setFavorites] = useState<number[]>([])
   const [canEdit, setCanEdit] = useState<boolean>(false)
 
@@ -22,7 +23,7 @@ export default function Home() {
         setCharacters(response)
 
         const favoritesData = localStorage.getItem('favorites')
-        if (favoritesData !== null) {
+        if (favoritesData) {
           setFavorites(JSON.parse(favoritesData))
         }
 
@@ -41,14 +42,15 @@ export default function Home() {
     }
   }, [favorites, canEdit])
 
-  const handlePageChange = async (next: number) => {
-    if (characters === undefined) return
+  const handlePageChange = async (next: boolean) => {
+    if (!characters) return
 
     try {
-      const response = await getCharacterAtPage(
-        next === -1 ? characters?.info.prev : characters?.info.next,
-      )
-      setCharacters(response)
+      const url = next ? characters.info.next : characters.info.prev
+      if (url) {
+        const response = await getCharacterAtPage(url)
+        setCharacters(response)
+      }
     } catch (error) {
       console.error('Error fetching data:', error)
     }
@@ -60,24 +62,24 @@ export default function Home() {
       <div className='bg-pink-900'>
         <div className='blur-5 sticky bottom-2 flex items-center justify-center gap-5 bg-pink-50'>
           <button
-            className='mx-2 mb-4 rounded-full px-7  py-1 pt-24 text-2xl text-pink-600'
-            onClick={() => handlePageChange(-1)}
-            disabled={characters?.info.prev == null}
+            className='mx-2 mb-4 rounded-full px-7 py-1 pt-24 text-2xl text-pink-600'
+            onClick={() => handlePageChange(false)} // for previous page
+            disabled={!characters?.info.prev}
           >
             ⬸
           </button>
 
           <button
-            className='mx-2 mb-4 rounded-full px-7  py-1 pt-24 text-2xl text-pink-600'
-            onClick={() => handlePageChange(1)}
-            disabled={characters?.info.next == null}
+            className='mx-2 mb-4 rounded-full px-7 py-1 pt-24 text-2xl text-pink-600'
+            onClick={() => handlePageChange(true)} // for next page
+            disabled={!characters?.info.next}
           >
             ⤑
           </button>
         </div>
 
-        <div className=' m-10 pb-20'>
-          {characters?.results.map((character) => (
+        <div className='m-10 pb-20'>
+          {characters?.results.map((character: Character) => (
             <CharacterCard
               key={character.id}
               character={character}

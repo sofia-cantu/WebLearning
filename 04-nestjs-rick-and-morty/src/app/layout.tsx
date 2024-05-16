@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Rick and Morty',
+  title: 'Act Rick and Morty',
 }
 
 export default function RootLayout({
