@@ -18,7 +18,7 @@ export const feedbackSchema = z.object({
   comments: z.string().optional(),
 })
 
-export const characterSchema = z.object({
+export const CharacterSchema = z.object({
   image: z.string(),
   id: z.number(),
   name: z.string(),
@@ -31,7 +31,7 @@ export const characterSchema = z.object({
   created: z.string().optional(),
 })
 
-export type Character = z.infer<typeof characterSchema>
+export type Character = z.infer<typeof CharacterSchema>
 
 export const CharacterResponseSchema = z.object({
   info: z.object({
@@ -40,12 +40,11 @@ export const CharacterResponseSchema = z.object({
     next: z.string().nullable(),
     prev: z.string().nullable(),
   }),
-  results: z.array(characterSchema),
+  results: z.array(CharacterSchema),
 })
 
 export type CharacterResponse = z.infer<typeof CharacterResponseSchema>
-
-export const CharacterArraySchema = z.array(characterSchema)
+export const CharacterArraySchema = z.array(CharacterSchema)
 
 /*
 It's very similar to Typescript to work with properties, please take a look at zod Objects: https://zod.dev/?id=objects
