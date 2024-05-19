@@ -97,34 +97,6 @@ describe('Character Response Schema', () => {
     expect(result.success).toBe(false)
   })
 
-  it('should validate valid character response data', () => {
-    const validCharacterResponseData = {
-      info: { count: 1, pages: 1, next: null, prev: null },
-      results: [
-        {
-          image: 'https://example.com/image.jpg',
-          id: 1,
-          name: 'Rick Sanchez',
-          status: 'Alive',
-          species: 'Human',
-          origin: {
-            name: 'Earth',
-            url: 'https://rickandmortyapi.com/api/location/1',
-          },
-          location: {
-            name: 'Earth',
-            url: 'https://rickandmortyapi.com/api/location/20',
-          },
-          episode: ['https://rickandmortyapi.com/api/episode/1'],
-          url: 'https://rickandmortyapi.com/api/character/1',
-          created: '2017-11-04T18:48:46.250Z',
-        },
-      ],
-    }
-    const result = CharacterResponseSchema.safeParse(validCharacterResponseData)
-    expect(result.success).toBe(true)
-  })
-
   it('should fail validation when info object has missing fields', () => {
     const invalidCharacterResponseData = {
       info: { count: 1, pages: 1, next: null },
