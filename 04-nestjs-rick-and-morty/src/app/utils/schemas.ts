@@ -3,29 +3,16 @@
 // create schema
 import { z } from 'zod'
 
-export const feedbackSchema = z.object({
-  name: z
-    .string({
-      required_error: 'Name is required',
-      invalid_type_error: 'Name should be a string',
-    })
-    .min(5, {
-      message: 'Name must be at least 5 characters long',
-    }),
-
-  subject: z.string(),
-
-  comments: z.string().optional(),
-})
-
 export const CharacterSchema = z.object({
   image: z.string(),
   id: z.number(),
   name: z.string(),
   status: z.string(),
   species: z.string(),
-  origin: z.object({ name: z.string(), url: z.string().optional() }),
-  location: z.object({ name: z.string(), url: z.string().optional() }),
+  origin: z.object({ name: z.string(), url: z.string().optional() }).optional(),
+  location: z
+    .object({ name: z.string(), url: z.string().optional() })
+    .optional(),
   episode: z.array(z.string()).optional(),
   url: z.string().optional(),
   created: z.string().optional(),
