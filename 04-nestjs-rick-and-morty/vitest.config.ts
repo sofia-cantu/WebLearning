@@ -16,7 +16,13 @@ export default defineConfig({
     coverage: {
       // files to include in metrics for coverage
       // add your folders, adjust based on yor structure
-      include: ['src/components/**/*.{ts,tsx}', 'src/helpers/**/*.{ts,tsx}'],
+      // REVISAR INCLUDE
+      include: [
+        'src/components/**/*.{ts,tsx}',
+        'src/helpers/**/*.{ts,tsx},',
+        'src/__tests__/utils/**/*.{ts,tsx}',
+        'src/app/utils/**/*.{ts,tsx}',
+      ],
       // if you want to exclude some files
       exclude: [],
       reporter: ['html', 'text-summary'],
