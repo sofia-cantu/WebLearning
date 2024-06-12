@@ -78,6 +78,8 @@ export async function getCharactersByIds(ids: number[]): Promise<Character[]> {
   */
 }
 
+
+export type { Character }
 //export { Character, CharacterCurrentPage }
 
 /*

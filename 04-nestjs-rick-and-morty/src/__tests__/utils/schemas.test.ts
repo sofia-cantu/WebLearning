@@ -1,4 +1,5 @@
 // __tests__/utils/schemas.test.ts
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 import { CharacterSchema, CharacterResponseSchema } from '@/app/utils/schemas'
 

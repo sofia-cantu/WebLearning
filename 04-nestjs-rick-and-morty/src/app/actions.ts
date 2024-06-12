@@ -2,8 +2,8 @@
 
 import { redirect } from 'next/navigation'
 
-export async function navigateToCharacters() {
-  redirect('/')
+export async function navigateToAllCharacters() {
+  redirect('/home')
 }
 
 export async function navigateToCharacter(id: number) {

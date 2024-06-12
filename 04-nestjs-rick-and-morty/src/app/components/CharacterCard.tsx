@@ -40,13 +40,7 @@ export default function CharacterCard({
           {character.status} ✏ {character.species}
         </p>
 
-        <p className='select-none px-2 font-mono text-xs text-pink-900'>
-          Origin: {character.origin.name}
-        </p>
 
-        <p className='select-none px-2 font-mono text-xs text-pink-900'>
-          Location: {character.location.name}
-        </p>
       </div>
 
       <button
