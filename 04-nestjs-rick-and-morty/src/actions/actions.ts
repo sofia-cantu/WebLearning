@@ -31,8 +31,8 @@ export async function getCharactersByIds(
   return response.json()
 }
 
-export async function goToCharacters() {
-  redirect('/')
+export async function goToAllCharacters() {
+  redirect('/home')
 }
 
 export async function goToFavorites() {
