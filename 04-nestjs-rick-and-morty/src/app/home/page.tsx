@@ -9,12 +9,8 @@ import {
   getCharacterAtPage,
   getCharactersFirstPage,
 } from '../services/characterService'
-<<<<<<< Updated upstream
 //import { Character, CharacterResponse } from './utils/schemas' // Import directly from schemas
 import { Character, CharacterResponse } from '../utils/schemas' 
-=======
-import { Character, CharacterResponse } from '../utils/schemas' // Import directly from schemas
->>>>>>> Stashed changes
 
 export default function Home() {
   const [characters, setCharacters] = useState<CharacterResponse | null>(null)

@@ -12,12 +12,10 @@
     "prepare": "cd .. && husky 04-nestjs-rick-and-morty/.husky || true",
     "format": "prettier --write .",
     "test": "vitest",
-    "test:ci": "vitest run --coverage",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "test:ci": "vitest run --coverage"
   },
   "dependencies": {
-<<<<<<< Updated upstream
+    "@auth/drizzle-adapter": "^1.2.0",
     "@auth/pg-adapter": "^1.2.0",
     "@vercel/postgres": "^0.8.0",
     "cross-fetch": "^4.0.0",
@@ -28,42 +26,22 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zod": "^3.23.8"
-=======
-    "@auth/drizzle-adapter": "^1.2.0",
-    "@auth/pg-adapter": "^1.2.0",
-    "@neondatabase/serverless": "^0.9.3",
-    "@next-auth/prisma-adapter": "^1.0.7",
-    "cross-fetch": "^4.0.0",
-    "drizzle-orm": "^0.31.2",
-    "next": "14.2.2",
-    "next-auth": "^4.24.7",
-    "pg": "^8.12.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "zod": "^3.23.6"
->>>>>>> Stashed changes
   },
   "devDependencies": {
     "@eslint/js": "^9.2.0",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
-<<<<<<< Updated upstream
     "@types/node": "^20.14.2",
     "@types/pg": "^8.11.6",
     "@types/react": "^18.3.3",
-=======
-    "@types/node": "^20",
-    "@types/pg": "^8.11.6",
-    "@types/react": "^18.3.2",
->>>>>>> Stashed changes
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@vitejs/plugin-react": "^4.3.0",
     "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
     "autoprefixer": "^10.4.19",
-    "drizzle-kit": "^0.22.6",
+    "drizzle-kit": "^0.22.7",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.1.0",
@@ -79,16 +57,10 @@
     "postcss": "^8.4.38",
     "prettier": "^3.3.1",
     "prettier-plugin-tailwindcss": "^0.6.2",
-    "source-map-loader": "^1.0.0",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.8.0",
     "vercel": "^34.2.6",
     "vitest": "^1.6.0"
-  },
-  "browser": {
-    "fs": false,
-    "os": false,
-    "path": false
   }
 }
