@@ -1,0 +1,46 @@
+#.github/workflows/test.yml
+
+name: Test Coverage
+
+ 
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, reopened]
+
+defaults:
+  run:
+    working-directory: ./04-nestjs-rick-and-morty
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 04-nestjs-rick-and-morty
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Run tests
+        run: npm run test:ci
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
